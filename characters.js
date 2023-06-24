@@ -1,6 +1,6 @@
 let nextUrl = "https://rickandmortyapi.com/api/character?page=1";
 let loadMoreButton = document.getElementById("loadMoreButton");
-let characterArea = document.getElementById("charArea");
+let area = document.getElementById("area");
 
 try {
   getDatas();
@@ -60,6 +60,5 @@ function createCharCard(charObj) {
   });
 
   //! Final Step
-  characterArea.appendChild(card);
+  area.appendChild(card);
 }
-1``;
