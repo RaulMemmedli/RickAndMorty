@@ -20,6 +20,7 @@ function setDatasToScreen(charObj) {
   document.getElementById("charImg").src = charObj.image;
   //! Set Name
   document.getElementById("charName").innerText = getInfo(charObj.name);
+  document.title = getInfo(charObj.name);
   //! Set Info
   document.getElementById("gender").innerText = getInfo(charObj.gender);
   document.getElementById("status").innerText = getInfo(charObj.status);
@@ -38,6 +39,7 @@ function setDatasToScreen(charObj) {
 }
 
 async function setLocationData(url, elId) {
+  document.getElementById(elId).children[0].children[1].style.display = "none";
   if (url.length !== 0) {
     let response = await fetch(url);
     let jsonData = response.json();
@@ -46,6 +48,8 @@ async function setLocationData(url, elId) {
         window.location.href = `./location.html?id=${data.id}`;
       });
     });
+    document.getElementById(elId).children[0].children[1].style.display =
+      "block";
   }
 }
 
